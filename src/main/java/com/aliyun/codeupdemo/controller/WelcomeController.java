@@ -17,3 +17,7 @@ public class WelcomeController {
         response.sendRedirect("https://codeup.aliyun.com/tour");
     }
 }
+
+
+
+GVGV
