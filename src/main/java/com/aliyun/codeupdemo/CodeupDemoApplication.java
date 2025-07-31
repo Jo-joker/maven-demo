@@ -13,6 +13,3 @@ public class CodeupDemoApplication {
         SpringApplication.run(CodeupDemoApplication.class, args);
     }
 }
-
-
-
