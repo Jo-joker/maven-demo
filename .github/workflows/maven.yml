@@ -29,4 +29,13 @@ jobs:          
         cache: maven          
     - name: Build with Maven
       run: mvn -B package --file pom.xml
-
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@v6.0.0
+      with:
+        name: Demo-Artifact
+        path: **/target/*.?ar
+    # The desired behavior if no files are found using the provided path.
+      Available Options:
+        warn: Output a warning but do not fail the action
+        error: Fail the action with an error message
+        ignore: Do not output any warnings or errors, the action does not fail
