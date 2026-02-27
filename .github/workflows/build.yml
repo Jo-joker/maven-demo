@@ -15,6 +15,7 @@ on:
 
 jobs:
   build:
+    name: My first job
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
@@ -36,6 +37,7 @@ jobs:
         error: Fail the action with an error message
         ignore: Do not output any warnings or errors, the action does not fail
   build-01:
+    name: My-second-job
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
