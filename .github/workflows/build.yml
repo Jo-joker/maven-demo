@@ -9,7 +9,7 @@ name: Build with java
 
 on:
   push:
-    branches: [ "develop" ]
+    branches: [ "develop","master" ]
   pull_request:
     branches: [ "master" ]
 
