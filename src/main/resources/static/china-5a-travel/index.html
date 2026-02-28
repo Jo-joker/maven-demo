@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>中国5A旅游景区全览</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-content">
+      <h1>中国 5A 旅游景区全览</h1>
+      <p>
+        覆盖全国 5A 旅游景区，展示景区信息及附近酒店、餐饮、位置与价格参考。
+      </p>
+      <p class="hint">
+        温馨提示：酒店与餐饮信息为行程规划参考，请以预订平台和景区官方最新信息为准。
+      </p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="stats" id="statsPanel">
+      <article>
+        <h2 id="totalAttractions">0</h2>
+        <p>5A 景区总数</p>
+      </article>
+      <article>
+        <h2 id="totalProvinces">0</h2>
+        <p>覆盖省级行政区</p>
+      </article>
+      <article>
+        <h2 id="avgTicketPrice">¥0</h2>
+        <p>门票均价参考</p>
+      </article>
+      <article>
+        <h2 id="lastUpdated">-</h2>
+        <p>数据更新时间</p>
+      </article>
+    </section>
+
+    <section class="controls">
+      <label>
+        关键词搜索
+        <input
+          id="searchInput"
+          type="text"
+          placeholder="输入景区名、省市、区县、酒店或餐饮关键词"
+        />
+      </label>
+
+      <label>
+        省份筛选
+        <select id="provinceSelect">
+          <option value="">全部省份</option>
+        </select>
+      </label>
+
+      <label>
+        排序方式
+        <select id="sortSelect">
+          <option value="default">默认（按省份/名称）</option>
+          <option value="ticketAsc">门票价格升序</option>
+          <option value="ticketDesc">门票价格降序</option>
+          <option value="hotelAsc">酒店均价升序</option>
+          <option value="hotelDesc">酒店均价降序</option>
+          <option value="foodAsc">餐饮人均升序</option>
+          <option value="foodDesc">餐饮人均降序</option>
+        </select>
+      </label>
+    </section>
+
+    <section class="result-meta">
+      <p id="resultText">正在加载数据...</p>
+    </section>
+
+    <section id="cardList" class="card-list"></section>
+
+    <section class="pagination">
+      <button id="prevBtn" type="button">上一页</button>
+      <span id="pageInfo">第 1 / 1 页</span>
+      <button id="nextBtn" type="button">下一页</button>
+    </section>
+  </main>
+
+  <template id="cardTemplate">
+    <article class="spot-card">
+      <div class="spot-header">
+        <div>
+          <h3 class="spot-name"></h3>
+          <p class="spot-location"></p>
+          <p class="spot-date"></p>
+        </div>
+        <div class="spot-price-block">
+          <p class="ticket-price-label">门票参考</p>
+          <p class="ticket-price"></p>
+        </div>
+      </div>
+
+      <div class="spot-tags"></div>
+
+      <div class="spot-actions">
+        <button class="toggle-hotels" type="button">查看附近酒店</button>
+        <button class="toggle-foods" type="button">查看附近餐饮</button>
+        <a class="map-link" target="_blank" rel="noopener noreferrer">地图搜索</a>
+      </div>
+
+      <div class="detail-panel hotels-panel hidden"></div>
+      <div class="detail-panel foods-panel hidden"></div>
+    </article>
+  </template>
+
+  <script src="./app.js"></script>
+</body>
+</html>

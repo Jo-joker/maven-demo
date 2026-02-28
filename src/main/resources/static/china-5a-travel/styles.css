@@ -1,0 +1,272 @@
+:root {
+  color-scheme: light;
+  --bg: #f4f7fb;
+  --card: #ffffff;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --line: #e5e7eb;
+  --brand: #2563eb;
+  --brand-soft: #dbeafe;
+  --ok: #047857;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "PingFang SC", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.5;
+}
+
+.hero {
+  background: linear-gradient(120deg, #0f172a, #1d4ed8);
+  color: #fff;
+  padding: 48px 20px 40px;
+}
+
+.hero-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.hero h1 {
+  margin: 0 0 10px;
+  font-size: 34px;
+}
+
+.hero p {
+  margin: 6px 0;
+  max-width: 860px;
+}
+
+.hero .hint {
+  color: #bfdbfe;
+  font-size: 14px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 20px auto 48px;
+  padding: 0 20px;
+}
+
+.stats {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+.stats article {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.stats h2 {
+  margin: 0;
+  color: var(--brand);
+  font-size: 28px;
+}
+
+.stats p {
+  margin: 4px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.controls {
+  margin-top: 16px;
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.controls label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.controls input,
+.controls select {
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-size: 14px;
+  outline: none;
+  background: #fff;
+}
+
+.controls input:focus,
+.controls select:focus {
+  border-color: var(--brand);
+  box-shadow: 0 0 0 2px var(--brand-soft);
+}
+
+.result-meta {
+  margin-top: 14px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.card-list {
+  margin-top: 14px;
+  display: grid;
+  gap: 14px;
+}
+
+.spot-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 14px;
+}
+
+.spot-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.spot-name {
+  margin: 0;
+  font-size: 22px;
+}
+
+.spot-location,
+.spot-date {
+  margin: 4px 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.spot-price-block {
+  min-width: 110px;
+  text-align: right;
+}
+
+.ticket-price-label {
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.ticket-price {
+  margin: 2px 0 0;
+  color: var(--ok);
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.spot-tags {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag {
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-size: 12px;
+  color: #334155;
+}
+
+.spot-actions {
+  margin-top: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.spot-actions button,
+.spot-actions .map-link {
+  border: 1px solid #bfdbfe;
+  background: var(--brand-soft);
+  color: #1d4ed8;
+  padding: 7px 12px;
+  border-radius: 8px;
+  font-size: 13px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.spot-actions button:hover,
+.spot-actions .map-link:hover {
+  background: #bfdbfe;
+}
+
+.detail-panel {
+  margin-top: 12px;
+  border-top: 1px dashed #cbd5e1;
+  padding-top: 12px;
+}
+
+.detail-panel.hidden {
+  display: none;
+}
+
+.detail-item {
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 8px;
+  background: #f8fafc;
+}
+
+.detail-item h4 {
+  margin: 0 0 4px;
+  font-size: 15px;
+}
+
+.detail-item p {
+  margin: 2px 0;
+  font-size: 13px;
+  color: #475569;
+}
+
+.pagination {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.pagination button {
+  background: #fff;
+  border: 1px solid #cbd5e1;
+  color: #0f172a;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.pagination button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+@media (max-width: 720px) {
+  .hero h1 {
+    font-size: 26px;
+  }
+
+  .spot-header {
+    flex-direction: column;
+  }
+
+  .spot-price-block {
+    text-align: left;
+  }
+}
