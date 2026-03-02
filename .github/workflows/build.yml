@@ -82,4 +82,5 @@ jobs:
     - name: show me the job name
       run: |
         echo ${{ github.job }}
+        echo $JOB_NAME
         echo ${{ steps.set_job_name_to_output.outputs.job_name }}
