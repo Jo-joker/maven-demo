@@ -17,6 +17,10 @@ jobs:
   build:
     name: My first job
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: ["x86","x64","arm","amd"]
+        browns: ["Edge","chrome","firefox"]
     steps:
     - uses: actions/checkout@v4
     - name: Set up JDK 17
@@ -25,6 +29,10 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
         cache: maven
+    - name: echo the matirx
+      run: 
+        echo ${{ matrix.os }}
+        echo ${{ matrix.browns }}
     - name: Build with Maven
       run: mvn -B package --file pom.xml
     - name: Upload a Build Artifact
