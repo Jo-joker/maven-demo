@@ -75,7 +75,11 @@ jobs:
       job_name: 第三个任务
     steps:
     - uses: actions/checkout@v4
+    - id: set_job_name_to_output
+      name: initilize job name output
+      run: |
+        echo "job_name=第三个任务" >> GITHUB_OUTPUT
     - name: show me the job name
       run: |
         echo ${{ github.job }}
-        echo ${{ jobs.build-03.outputs.job_name }}
+        echo ${{ steps.set_job_name_to_output.outputs.job_name }}
