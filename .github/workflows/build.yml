@@ -14,7 +14,7 @@ on:
     branches: [ "master" ]
 
 jobs:
-  build:
+  build-01:
     name: My first job
     runs-on: ubuntu-latest
     strategy:
@@ -44,7 +44,7 @@ jobs:
         warn: Output a warning but do not fail the action
         error: Fail the action with an error message
         ignore: Do not output any warnings or errors, the action does not fail
-  build-01:
+  build-02:
     name: My-second-job
     runs-on: ubuntu-latest
     steps:
@@ -66,3 +66,16 @@ jobs:
         warn: Output a warning but do not fail the action
         error: Fail the action with an error message
         ignore: Do not output any warnings or errors, the action does not fail
+  build-03:
+    name: My-third-job
+    runs-on: ubuntu-latest
+    env:
+      JOB_NAME: My-third-job
+    outputs:
+      job_name: 第三个任务
+    steps:
+    - uses: actions/checkout@v4
+    - name: show me the job name
+      run: |
+        echo ${{ github.job }}
+        echo ${{ jobs.build-03.outputs.job_name }}
