@@ -30,7 +30,7 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: echo the matirx
-      run: 
+      run: |
         echo ${{ matrix.os }}
         echo ${{ matrix.browns }}
     - name: Build with Maven
