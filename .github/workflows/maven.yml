@@ -9,9 +9,9 @@ name: Build with Maven
 
 on:
   push:
-    branches: [ "master" ]
+    branches: [ "master","develop001" ]
   pull_request:
-    branches: [ "master" ]
+    branches: [ "master" ,"develop001"]
 
 jobs:
   build:
