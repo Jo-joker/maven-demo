@@ -9,9 +9,9 @@ name: Build with java
 
 on:
   push:
-    branches: [ "develop","master" ]
+    branches: [ "develop","master","develop001" ]
   pull_request:
-    branches: [ "master" ]
+    branches: [ "master" ,"develop001"]
 
 jobs:
   build-00:
