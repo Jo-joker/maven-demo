@@ -24,45 +24,53 @@ jobs:
           echo ref_name: ${{github.ref_name}}
           echo action_repo: ${{github.action_repository}}
           echo repo_owner: ${{github.repository_owner}}
+      - name: show me the secret
+        run: |
+          echo github token ${{secrets.GITHUB_TOKEN}}
+      - name: show me the ref and sha
+        run: |
+          echo github ref: ${{github.ref}}
+          echo github sha: ${{github.sha}}
+          echo ${{github.workflow_ref}}/${{github.head_ref}}/${{github.base_ref}}
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
-    - name: Set up JDK 17
-      uses: actions/setup-java@v4
-      with:
-        java-version: '17'
-        distribution: 'temurin'
-        cache: maven
-    - name: Build with Maven
-      run: mvn -B package --file pom.xml
-    - name: Upload a Build Artifact
-      uses: actions/upload-artifact@v6.0.0
-      with:
-        name: Demo-Artifact
-        path: /target/*.?ar
-    # The desired behavior if no files are found using the provided path.
-        warn: Output a warning but do not fail the action
-        error: Fail the action with an error message
-        ignore: Do not output any warnings or errors, the action does not fail
+      - uses: actions/checkout@v4
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: maven
+      - name: Build with Maven
+        run: mvn -B package --file pom.xml
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v6.0.0
+        with:
+          name: Demo-Artifact
+          path: /target/*.?ar
+      # The desired behavior if no files are found using the provided path.
+          warn: Output a warning but do not fail the action
+          error: Fail the action with an error message
+          ignore: Do not output any warnings or errors, the action does not fail
   build-01:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
-    - name: Set up JDK 17
-      uses: actions/setup-java@v4
-      with:
-        java-version: '17'
-        distribution: 'temurin'
-        cache: maven
-    - name: Build with Maven
-      run: mvn -B package --file pom.xml
-    - name: Upload a Build Artifact
-      uses: actions/upload-artifact@v6.0.0
-      with:
-        name: Demo-Artifact
-        path: /target/*.?ar
-    # The desired behavior if no files are found using the provided path.
-        warn: Output a warning but do not fail the action
-        error: Fail the action with an error message
-        ignore: Do not output any warnings or errors, the action does not fail
+      - uses: actions/checkout@v4     
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: maven
+      - name: Build with Maven
+        run: mvn -B package --file pom.xml
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v6.0.0
+        with:
+          name: Demo-Artifact
+          path: /target/*.?ar
+      # The desired behavior if no files are found using the provided path.
+          warn: Output a warning but do not fail the action
+          error: Fail the action with an error message
+          ignore: Do not output any warnings or errors, the action does not fail
