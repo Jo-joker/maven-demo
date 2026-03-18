@@ -12,6 +12,9 @@ on:
     branches: [ "master","develop001" ]
   pull_request:
     branches: [ "master" ,"develop001"]
+  workflow_dispatch: 
+  schedule:
+    - cron: '50 7 * * 3'
 
 jobs:
   echoRepoName:
